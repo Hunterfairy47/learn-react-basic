@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      //Bai1
+      //DOM
+      const h1DOM = document.createElement("h1");
+
+      h1DOM.title = "hello";
+      h1DOM.className = "heading";
+
+      h1DOM.innerText = "Hello guys!";
+
+      document.body.appendChild(h1DOM);
+
+      //React
+      //React.createElement(type, props, children, n)
+      const h1React = React.createElement(
+        "h1",
+        {
+          title: "hello",
+          className: "heading",
+        },
+        "hello guys!!",
+        "hello2"
+      );
+      console.log(h1React);
+
+      //=================================================
+
+      //Bai2
+      //DOM
+      const ulDOM = document.createElement("ul");
+      ulDOM.id = "ul-id";
+      ulDOM.style = "color:red";
+
+      const liDOM1 = document.createElement("li");
+      liDOM1.innerText = "Javascript";
+
+      const liDOM2 = document.createElement("li");
+      liDOM2.innerText = "React";
+
+      ulDOM.appendChild(liDOM1);
+      ulDOM.appendChild(liDOM2);
+
+      document.body.appendChild(ulDOM);
+
+      //React
+      const ulReact = React.createElement(
+        "ul",
+        {
+          id: "ul-li",
+          style: "color:red",
+        },
+        React.createElement("li", { id: "li-1" }, "Javascript"),
+        React.createElement("li", null, "React")
+      );
+
+      console.log(ulReact);
+
+      //=================================================
+
+      //Bai3
+      //DOM
+      //   const divDOM = document.createElement("div");
+      //   divDOM.className = "post-item";
+
+      //   const h2DOM = document.createElement("h2");
+      //   h2DOM.title = "Học React tại F8";
+      //   h2DOM.innerText = "Học ReactJS";
+
+      //   const pDOM = document.createElement("p");
+      //   pDOM.innerText = "Học ReactJS từ cơ bản đến nâng cao";
+
+      //   divDOM.appendChild(h2DOM);
+      //   divDOM.appendChild(pDOM);
+
+      //   document.body.append(divDOM);
+
+      //React
+      const postItem = React.createElement(
+        "div",
+        {
+          className: "post-item",
+        },
+        React.createElement("h2", { title: "Học React tại F8" }, "Học ReactJS"),
+        React.createElement("p", null, "Học ReactJS từ cơ bản đến nâng cao")
+      );
+
+      console.log(postItem);
+      //Get root element
+      const root = document.getElementById("root");
+
+      //React-DOM  -> Render UI
+      ReactDOM.render(postItem, root);
+
+      //JSX - Javascript XML
+
+      const courses = [
+        {
+          name: "HTML, CSS",
+        },
+        {
+          name: "Responsive web design",
+        },
+        {
+          name: "ReactJS",
+        },
+      ];
+
+      const jsx = (
+        <React.Fragment>
+          <ul>
+            {courses.map((course, index) => (
+              <li key={index}>{course.name}</li>
+            ))}
+          </ul>
+          <ul>
+            <h1>Hello guys</h1>
+          </ul>
+        </React.Fragment>
+      );
+
+      ReactDOM.render(jsx, root);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+      .btnClick {
+        display: block;
+        width: 120px;
+        height: 30px;
+        margin: auto;
+        line-height: 30px;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 20px;
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      //   function App() {
+      //     return (
+      //       <div di="wrapper">
+      //         <button onClick={() => console.log(Math.random())}>
+      //           Click me!
+      //         </button>
+      //       </div>
+      //     );
+      //   }
+
+      //
+
+      //   const Form = {
+      //     Input() {
+      //       return <input />;
+      //     },
+      //     Checkbox() {
+      //       return <input type="Checkbox" />;
+      //     },
+      //   };
+
+      function Button({ title, href, onClick }) {
+        let Component = "button";
+        const props = {};
+
+        if (href) {
+          Component = "a";
+          props.href = href;
+        }
+        if (onClick) {
+          props.onClick = onClick;
+        }
+
+        return (
+          <Component {...props} className="btnClick">
+            {title}
+          </Component>
+        ); //spread
+      }
+
+      function App() {
+        const handleClick = () => {
+          alert("hello!!!");
+        };
+        return (
+          <div di="wrapper">
+            <Button
+              title="Click me!"
+              href="https://fullstack.edu.vn/"
+              onClick={handleClick}
+            />
+          </div>
+        );
+      }
+
+      //Spread/Rest props
+      //   function Input({ label, ...inputProps }) {
+      //     return (
+      //       <div>
+      //         <label>{label}</label>
+      //         <input {...inputProps} />
+      //       </div>
+      //     );
+      //   }
+      //   function App() {
+      //     return (
+      //       <div di="wrapper">
+      //         <Input
+      //           label="Full Name"
+      //           type="text"
+      //           placeholder="Enter name...."
+      //           title="Đây là input"
+      //           onFocus={() => {
+      //             console.log(Math.random());
+      //           }}
+      //         />
+      //       </div>
+      //     );
+      //   }
+
+      // function List({ data, children }) {
+      //   return <ul>{data.map((...props) => children(...props))}</ul>;
+      // }
+
+      // function App() {
+      //   const cars = ["BMW", "Honda", "Mazda"];
+
+      //   return (
+      //     <div di="wrapper">
+      //       <List data={cars}>
+      //         {(item, index) => <li key={index}>{item}</li>}
+      //       </List>
+      //     </div>
+      //   );
+      // }
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

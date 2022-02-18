@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+      //Function Component
+      function Header() {
+        return <div className="header">Header</div>;
+      }
+
+      function Content() {
+        return <div className="content">Content</div>;
+      }
+
+      //Class component
+      class Footer extends React.Component {
+        render() {
+          return <div className="footer">Footer</div>;
+        }
+      }
+      //   const app = (
+      //     <div className="wrapper">
+      //       <Header />
+      //       <Content />
+      //       <Footer />
+      //     </div>
+      //   );
+
+      //prop cơ bản là đối số của component
+      //=> prop có thể là bất cứ dữ liệu gì
+      // function PostsItem({ image, title, description, publishedAt }) {
+      //   return (
+      //     <div className="posts-item">
+      //       <img src={image} />
+      //       <h2 className="post-title">{title}</h2>
+      //       <p className="post-desc">{description}</p>
+      //       <p className="post-publised">{publishedAt}</p>
+      //     </div>
+      //   );
+      // }
+
+      // const App = (
+      //   <div className="posts-list">
+      //     <PostsItem
+      //       title="Thời gian và Động lực 1"
+      //       image="https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b6368a3a089.jpg"
+      //       description="Có lẽ cũng rất lâu rồi mà tôi chưa đụng đến thứ được gọi là..."
+      //       publishedAt="2 tháng trước·6 phút đọc"
+      //     />
+
+      //     <PostsItem
+      //       title="Thời gian và Động lực 2"
+      //       image="https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b6368a3a089.jpg"
+      //       description="Có lẽ cũng rất lâu rồi mà tôi chưa đụng đến thứ được gọi là..."
+      //       publishedAt="2 tháng trước·6 phút đọc"
+      //     />
+
+      //     <PostsItem
+      //       title="Thời gian và Động lực 3"
+      //       image="https://files.fullstack.edu.vn/f8-prod/blog_posts/1671/61b6368a3a089.jpg"
+      //       description="Có lẽ cũng rất lâu rồi mà tôi chưa đụng đến thứ được gọi là..."
+      //       publishedAt="2 tháng trước·6 phút đọc"
+      //     />
+      //   </div>
+      // );
+
+      //CourseItem
+      const courses = [
+        {
+          id: 7,
+          title: "Kiến Thức Nhập Môn IT",
+          slug: "lessons-for-newbie",
+          description:
+            "Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên xem các videos tại khóa này trước nhé.",
+          image: "courses/7.png",
+          icon: "courses/7/6200b81f52d83.png",
+          video_type: "youtube",
+          video: "M62l1xA5Eu8",
+          old_price: 0,
+          price: 0,
+          pre_order_price: 0,
+          students_count: 55423,
+          is_pro: false,
+          is_selling: false,
+          published_at: "2020-02-10T14:23:13.000000Z",
+          is_registered: true,
+          user_progress: 66,
+          last_completed_at: "2022-01-24 14:49:26",
+          image_url: "https://files.fullstack.edu.vn/f8-prod/courses/7.png",
+          icon_url:
+            "https://files.fullstack.edu.vn/f8-prod/courses/7/6200b81f52d83.png",
+          video_url: "https://www.youtube.com/watch?v=M62l1xA5Eu8",
+          is_coming_soon: false,
+          is_pre_order: false,
+          is_published: true,
+        },
+        {
+          id: 13,
+          title: "Xây Dựng Website với ReactJS",
+          slug: "reactjs",
+          description:
+            "Khóa học ReactJS từ cơ bản tới nâng cao, kết quả của khóa học này là bạn có thể làm hầu hết các 				dự án thường gặp với ReactJS. Cuối khóa học này bạn sẽ sở hữu một dự án giống Tiktok.com, bạn có thể tự tin đi x				in việc khi nắm chắc các kiến thức được chia sẻ trong khóa học này.",
+          image: "courses/13/13.png",
+          icon: "courses/13/6200af9262b30.png",
+          video_type: "youtube",
+          video: "x0fSBAgBrOQ",
+          old_price: 0,
+          price: 0,
+          pre_order_price: 0,
+          students_count: 22622,
+          is_pro: false,
+          is_selling: false,
+          published_at: "2020-02-10T14:23:13.000000Z",
+          is_registered: true,
+          user_progress: 30,
+          last_completed_at: "2022-02-13 14:36:51",
+          image_url: "https://files.fullstack.edu.vn/f8-prod/courses/13/13.png",
+          icon_url:
+            "https://files.fullstack.edu.vn/f8-prod/courses/13/6200af9262b30.png",
+          video_url: "https://www.youtube.com/watch?v=x0fSBAgBrOQ",
+          is_coming_soon: false,
+          is_pre_order: false,
+          is_published: true,
+        },
+        {
+          id: 2,
+          title: "HTML, CSS từ Zero đến Hero",
+          slug: "html-css",
+          description:
+            "Trong khóa này chúng ta sẽ cùng nhau xây dựng giao diện 2 trang web là The Band & Shopee.",
+          image: "courses/2.png",
+          icon: "courses/2/6200aecea81de.png",
+          video_type: "youtube",
+          video: "R6plN3FvzFY",
+          old_price: 0,
+          price: 0,
+          pre_order_price: 0,
+          students_count: 140948,
+          is_pro: false,
+          is_selling: false,
+          published_at: "2020-02-10T14:23:13.000000Z",
+          is_registered: true,
+          user_progress: 99,
+          last_completed_at: "2021-09-09 21:38:16",
+          image_url: "https://files.fullstack.edu.vn/f8-prod/courses/2.png",
+          icon_url:
+            "https://files.fullstack.edu.vn/f8-prod/courses/2/6200aecea81de.png",
+          video_url: "https://www.youtube.com/watch?v=R6plN3FvzFY",
+          is_coming_soon: false,
+          is_pre_order: false,
+          is_published: true,
+        },
+      ];
+
+      const CoursesItem = ({ course, onClick }) => (
+        <div className="posts-item">
+          <h2
+            className="post-title"
+            onClick={() => {
+              onClick(course);
+            }}
+          >
+            {course.title}
+          </h2>
+          <img src={course.image_url} />
+          <p className="post-desc">{course.description}</p>
+          <span className="post-students_count">{course.students_count}</span>
+        </div>
+      );
+
+      function App() {
+        const handleClick = (course) => {
+          alert(course.title);
+        };
+        return (
+          <div className="posts-list">
+            {courses.map((course) => (
+              <CoursesItem
+                key={course.id}
+                course={course}
+                onClick={handleClick}
+              />
+            ))}
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("app"));
+    </script>
+  </body>
+</html>
